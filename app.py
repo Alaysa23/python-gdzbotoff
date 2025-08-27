@@ -2,10 +2,10 @@ import telebot
 
 from telebot import types
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-
+from telebot import TeleBot
 from config import TOKEN
 
-bot = telebot.TeleBot(TOKEN)
+bot = TeleBot(TOKEN)
 
 ALLOWED_IDS = []
 ALLOWED_USERNAMES = []
@@ -28,14 +28,14 @@ def send_gdz(message):
         message,
         "Доступні команди:\n" \
         "Для 7 класа \n"
-        "/gdz7 - отримати ГДЗ 7 класу (2025)\n"
-        "/gdzkr7 - отримати ГДЗ контрольної роботи 7 класу (2025)\n"
+        "/гдз - отримати ГДЗ 7 класу (2025)\n"
+        "/гдзкр7 - отримати ГДЗ контрольної роботи 7 класу (2025)\n"
         "Для 8 класа \n"
-        "/gdz8 - отримати ГДЗ 8 класу (2025)\n"
-        "/gdzkr8 - отримати ГДЗ контрольної роботи 8 класу (2025)"
+        "/гдз8 - отримати ГДЗ 8 класу (2025)\n"
+        "/гдзкр8 - отримати ГДЗ контрольної роботи 8 класу (2025)"
     )
 
-@bot.message_handler(commands=['gdz7'])
+@bot.message_handler(commands=['гдз7'])
 @restrict_access
 def gdz7(message):
     keyboard = InlineKeyboardMarkup()
@@ -51,7 +51,7 @@ def gdz7(message):
     )
     bot.reply_to(message, "📘 ГДЗ 7 класу:", reply_markup=keyboard)
 
-@bot.message_handler(commands=['gdzkr7'])
+@bot.message_handler(commands=['гдзкр7'])
 @restrict_access
 def gdzkr7(message):
     keyboard = InlineKeyboardMarkup()
@@ -63,7 +63,7 @@ def gdzkr7(message):
     )
     bot.reply_to(message, "📗 ГДЗ контрольні роботи 7 класу:", reply_markup=keyboard)
 
-@bot.message_handler(commands=['gdz8'])
+@bot.message_handler(commands=['гдз8'])
 @restrict_access
 def gdz8(message):
     keyboard = InlineKeyboardMarkup()
@@ -79,7 +79,7 @@ def gdz8(message):
     )
     bot.reply_to(message, "📘 ГДЗ 8 класу:", reply_markup=keyboard)
 
-@bot.message_handler(commands=['gdzkr8'])
+@bot.message_handler(commands=['гдзкр8'])
 @restrict_access
 def gdzkr8(message):
     keyboard = InlineKeyboardMarkup()
