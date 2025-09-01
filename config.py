@@ -1,1 +1,3 @@
 TOKEN = ''
+ALLOWED_IDS = []
+DEVELOPERS = []
